@@ -1,5 +1,5 @@
-import firebase from "@firebase/app-compat"
-// import firebase from 'firebase/compat/app'
+// import firebase from "@firebase/app-compat"
+import firebase from 'firebase/compat/app'
 
 export default {
   actions: {
@@ -7,7 +7,7 @@ export default {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (error) {
-        commit('setError', error)
+        commit('setError', error) 
         throw error
       }
     },
@@ -26,10 +26,12 @@ export default {
     },
     getUid(){
       const user = firebase.auth().currentUser;
+      console.log(user)
       return user? user.uid : null
     },
-    async logout() {
+    async logout({commit}) {
       await firebase.auth().signOut();
+      commit('clearInfo')
     }
   }
 }
