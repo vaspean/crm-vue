@@ -9,7 +9,7 @@
         :key="cur"
         class="currency-line">
           <span>
-            {{getCurrency(cur)}}
+            {{getCurrency(cur) | currency(cur)}}
           </span>
         </p>
       </div>
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     getCurrency(currency) {
-      return currency == `RUB`? this.bill : Math.floor(this.bill/this.rates[`${currency}_RUB`]);
+      return currency == `RUB`? this.bill : (this.bill/this.rates[`${currency}_RUB`]).toFixed(2);
     }
   }
 }
