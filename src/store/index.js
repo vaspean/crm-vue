@@ -3,7 +3,9 @@ import Vuex from 'vuex'
 import auth from './auth'
 import info from './info'
 import category from './category'
+import record from './record'
 import axios from 'axios'
+
 
 Vue.use(Vuex)
 
@@ -32,6 +34,6 @@ export default new Vuex.Store({
     error: s => s.error
   },
   modules: {
-    auth, info, category
+    auth, info, category, record
   }
 })
