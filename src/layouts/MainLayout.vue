@@ -12,9 +12,9 @@
         </div>
       </main>
 
-      <div class="fixed-action-btn">
+      <div class="fixed-action-btn" v-if="this.$route.path != `/record`">
         <router-link class="btn-floating btn-large blue" to="/record">
-          <i class="large material-icons">add</i>
+          <i class="large material-icons" data-position="left" v-tooltip="`Создать новую запись`">add</i>
         </router-link>
       </div>
     </div>
@@ -25,6 +25,7 @@
 import Navbar from '@/components/app/Navbar.vue';
 import Sidebar from '@/components/app/Sidebar.vue';
 import Loader from '../components/app/Loader.vue';
+import messages from '@/utils/messages'
 
 export default {
   name: 'main-layout',
@@ -41,6 +42,17 @@ export default {
   },
   components: {
     Navbar, Sidebar, Loader
+  },
+  computed: {
+    error() {
+      return this.$store.getters.error
+    }
+  },
+  watch: {
+    error(fbError) {
+      console.log(fbError)
+      this.$error(messages[fbError.code] || 'Что-то пошло не так')
+    }
   }
 }
 </script>
