@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{'Menu_History'|localize}}</h3>
     </div>
-    <h5 class="center">Расходы по категориям:</h5>
+    <h5 class="center">{{'OutcomeByCategories'|localize}}:</h5>
     <div class="history-chart">
       <canvas ref="canvas"></canvas>
     </div>
@@ -22,8 +22,8 @@
         v-model="page"
         :page-count="pageCount"
         :click-handler="pageChangeHandler"
-        :prev-text="'Назад'"
-        :next-text="'Вперёд'"
+        :prev-text="'Pagination_Previous'|localize"
+        :next-text="'Pagination_Next'|localize"
         :container-class="'pagination'"
         :page-class="'waves-effect'"
       />
@@ -56,7 +56,7 @@ export default {
           ...record,
           categoryName: categories.find(category=> category.id === record.categoryId).title,
           typeClass: record.type === 'income' ? 'green' : 'red',
-          typeText: record.type === 'income' ? 'Доход' : 'Расход'
+          typeText: record.type === 'income' ? 'Income' : 'Outcome'
         }
       }))
       this.renderChart({

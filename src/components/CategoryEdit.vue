@@ -2,7 +2,7 @@
   <div class="col s12 m6">
     <div>
       <div class="page-subtitle">
-        <h4>Редактировать</h4>
+        <h4>{{'Edit'|localize}}</h4>
       </div>
 
       <form @submit.prevent="submitHandler">
@@ -15,7 +15,7 @@
             >{{category.title}}
               </option>
           </select>
-          <label>Выберите категорию</label>
+          <label>{{'Message_SelectCategory'|localize}}</label>
         </div>
 
         <div class="input-field">
@@ -25,12 +25,12 @@
               v-model="title"
               :class="{invalid: $v.title.$dirty && !$v.title.required}"
           >
-          <label for="name">Название</label>
+          <label for="name">{{"Title"|localize}}</label>
           <span
            class="helper-text invalid"
            v-if="$v.title.$dirty && !$v.title.required"
            >
-           Введите название категории</span>
+           {{'Message_EnterCategoryTitle'|localize}}</span>
         </div>
 
         <div class="input-field">
@@ -38,18 +38,18 @@
               id="limit"
               type="number"
               v-model.number="limit"
-              :class="{invalid: $v.limit.$dirty && !$v.limit.minValue}"
+              :class="{invalid: ($v.limit.$dirty && !$v.limit.minValue) || ($v.limit.$dirty && !$v.limit.required)}"
           >
-          <label for="limit">Лимит</label>
+          <label for="limit">{{"Limit"|localize}}</label>
           <span
            class="helper-text invalid"
-           v-if="$v.limit.$dirty && !$v.limit.minValue"
+           v-if="($v.limit.$dirty && !$v.limit.minValue) || ($v.limit.$dirty && !$v.limit.required)"
            >
-           Минимальное значение {{$v.limit.$params.minValue.min}}</span>
+           {{'Message_MinValue'|localize}} {{$v.limit.$params.minValue.min}}</span>
         </div>
 
         <button class="btn waves-effect waves-light" type="submit">
-          Обновить
+          {{'Update'|localize}}
           <i class="material-icons right">send</i>
         </button>
       </form>
@@ -74,7 +74,7 @@ export default {
   }),
   validations: {
     title: {required},
-    limit: {minValue: minValue(100)}
+    limit: {required, minValue: minValue(100)}
   },
   watch: {
     current(catId) {

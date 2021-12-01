@@ -4,7 +4,7 @@
     <div v-else class="app-main-layout">
       
       <Navbar @openClose="isOpen = !isOpen"/>
-      <Sidebar v-model="isOpen"/>
+      <Sidebar v-model="isOpen" :key="locale"/>
 
       <main class="app-content" :class="{'full': !isOpen}">
         <div class="app-page">
@@ -14,7 +14,7 @@
 
       <div class="fixed-action-btn" v-if="this.$route.path != `/record`">
         <router-link class="btn-floating btn-large blue" to="/record">
-          <i class="large material-icons" data-position="left" v-tooltip="`Создать новую запись`">add</i>
+          <i class="large material-icons" data-position="left" v-tooltip="'Tooltip_CreateNewRecord'">add</i>
         </router-link>
       </div>
     </div>
@@ -46,13 +46,19 @@ export default {
   computed: {
     error() {
       return this.$store.getters.error
+    },
+    locale() {
+      return this.$store.getters.info.locale
     }
   },
   watch: {
     error(fbError) {
       console.log(fbError)
       this.$error(messages[fbError.code] || 'Что-то пошло не так')
-    }
+    },
+    // locale() {
+
+    // }
   }
 }
 </script>

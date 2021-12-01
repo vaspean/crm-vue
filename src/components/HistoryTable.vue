@@ -3,11 +3,11 @@
     <thead>
     <tr>
       <th>#</th>
-      <th>Сумма</th>
-      <th>Дата</th>
-      <th>Категория</th>
-      <th>Тип</th>
-      <th>Открыть</th>
+      <th>{{'HistoryTable_Sum'|localize}}</th>
+      <th>{{'HistoryTable_Date'|localize}}</th>
+      <th>{{'HistoryTable_Category'|localize}}</th>
+      <th>{{'HistoryTable_Type'|localize}}</th>
+      <th>{{'HistoryTable_Open'|localize}}</th>
     </tr>
     </thead>
 
@@ -21,13 +21,13 @@
         <span 
           class="white-text badge" 
           :class="[record.typeClass]"
-        >{{ record.typeText }}</span>
+        >{{ record.typeText | localize}}</span>
       </td>
       <td>
         <button 
         class="btn-small btn" 
         @click="$router.push(`/detail-record/${record.id}`)" 
-        v-tooltip="`Посмотреть запись`">
+        v-tooltip="'Tooltip_OpenRecord'">
           <i class="material-icons">open_in_new</i>
         </button>
       </td>
