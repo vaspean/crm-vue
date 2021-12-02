@@ -37,6 +37,11 @@ import HistoryTable from '@/components/HistoryTable'
 import {Pie} from 'vue-chartjs'
 export default {
   name: 'history',
+  metaInfo() {
+    return {
+      title: this.$title('Menu_History')
+    }
+  },
   extends: Pie,
   mixins: [paginationMixin],
   data:()=>({
@@ -51,6 +56,7 @@ export default {
   },
   methods: {
     setup(categories) {
+      console.log(categories.length)
       this.setupPagination(this.records.map(record => {
         return{
           ...record,
@@ -59,6 +65,11 @@ export default {
           typeText: record.type === 'income' ? 'Income' : 'Outcome'
         }
       }))
+      const colorsArray = [];
+      for (let category in categories) {
+        colorsArray.push(this.dynamicColors());
+      }
+      console.log(colorsArray)
       this.renderChart({
         labels: categories.map(category => category.title),
         datasets: [{
@@ -71,26 +82,17 @@ export default {
                 return total
               },0)
             }),
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            backgroundColor: [...colorsArray],
             borderWidth: 1
         }]
       },)
-    }
+    },
+    dynamicColors() {
+      const r = Math.floor(Math.random() * 255);
+      const g = Math.floor(Math.random() * 255);
+      const b = Math.floor(Math.random() * 255);
+      return "rgba(" + r + "," + g + "," + b + "," + 1 + ")";
+    },
   },
   components: {
     HistoryTable

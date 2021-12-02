@@ -20,7 +20,7 @@
         <small
           class="helper-text invalid"
           v-else-if="($v.name.$dirty && !$v.name.minLength)"
-        >Длина имени должна быть не меньше {{$v.name.$params.minLength.min}}</small>
+        >{{'Message_MinNameLength'|localize}}: {{$v.name.$params.minLength.min}}</small>
       </div>
       <h5>{{'Language'|localize}}:</h5>
       <div class="switch">
@@ -44,6 +44,11 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 import { mapGetters, mapActions } from 'vuex'
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('ProfileTitle')
+    }
+  },
   data: () => ({
     name: '',
     isRuLocale: true

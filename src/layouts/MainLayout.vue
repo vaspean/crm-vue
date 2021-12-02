@@ -14,7 +14,7 @@
 
       <div class="fixed-action-btn" v-if="this.$route.path != `/record`">
         <router-link class="btn-floating btn-large blue" to="/record">
-          <i class="large material-icons" data-position="left" v-tooltip="'Tooltip_CreateNewRecord'">add</i>
+          <i class="large material-icons" data-position="left" :key="locale" v-tooltip="localizeFilter('Tooltip_CreateNewRecord')">add</i>
         </router-link>
       </div>
     </div>
@@ -25,7 +25,8 @@
 import Navbar from '@/components/app/Navbar.vue';
 import Sidebar from '@/components/app/Sidebar.vue';
 import Loader from '../components/app/Loader.vue';
-import messages from '@/utils/messages'
+import messages from '@/utils/messages';
+import localizeFilter from "@/filters/localize.filter"
 
 export default {
   name: 'main-layout',
@@ -50,6 +51,9 @@ export default {
     locale() {
       return this.$store.getters.info.locale
     }
+  },
+  methods: {
+    localizeFilter
   },
   watch: {
     error(fbError) {

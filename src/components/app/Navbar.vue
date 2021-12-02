@@ -49,6 +49,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('logout')
+      // this.$store.commit('setLocaleEmpty', `en-US`)
       this.$router.push('/login?message=logout')
     }
   },

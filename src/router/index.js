@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import firebase from 'firebase/compat/app'
-
+import store from '../store'
 Vue.use(VueRouter)
 
 const routes = [
@@ -70,6 +70,9 @@ const router = new VueRouter({
 router.beforeEach((to, from, next)=> {
   const currentUser = firebase.auth().currentUser
   const requiredAuth = to.matched.some(path => path.meta.auth)
+  if (to.path === '/login' || to.path === '/register') {
+    store.commit('setLocaleEmpty', `en-US`)
+  }
 
   if (requiredAuth && !currentUser) {
     next('/login?message=login')

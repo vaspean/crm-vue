@@ -1,8 +1,8 @@
-import localizeFilter from "@/filters/localize.filter"
+// import localizeFilter from "@/filters/localize.filter"
 
 export default {
   bind(el, {value}) {
-    M.Tooltip.init(el, {html: localizeFilter(value)})
+    M.Tooltip.init(el, {html: value})
   },
   unbind(el) {
     const tooltip = M.Tooltip.getInstance(el);

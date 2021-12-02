@@ -2,6 +2,12 @@
   "ProfileTitle": "Профиль",
   "Name": "Имя",
   "Message_EnterName": "Введите имя",
+  "Message_MinNameLength": "Минимальная длина имени",
+  "Message_EnterEmail": "Введите Email",
+  "Password": "Пароль",
+  "Message_EnterPassword": "Введите пароль",
+  "Message_MinPasswordLength": "Минимальная длина пароля",
+  "Message_EnterCorrectEmail": "Введите корректный Email",
   "Message_EnterCategoryTitle": "Введите название категории",
   "Message_MinValue": "Минимальное значение",
   "Message_SelectCategory": "Выберите категорию",
@@ -10,6 +16,7 @@
   "Message_EnterDescription": "Добавить новую категорию",
   "Update": "Обновить",
   "Language": "Язык",
+  "Detail_Title": "Подробнее",
   "Menu_Bill": "Счет",
   "Menu_History": "История",
   "Menu_Planning": "Планирование",
@@ -42,5 +49,10 @@
   "ExceededBy": "Превышение на",
   "Left": "Осталось",
   "RecordNotFound": "Запись не найдена",
-  "HomeBookkeeping": "Домашняя бухгалтерия"
+  "HomeBookkeeping": "Домашняя бухгалтерия",
+  "Login": "Войти",
+  "Register": "Зарегистрироваться",
+  "DontHaveAnAccount": "Нет аккаунта",
+  "HaveAnAccount": "Уже есть аккаунт",
+  "RulesAgree": "С правилами согласен"
 }

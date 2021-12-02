@@ -11,7 +11,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    error: null
+    error: null,
+    localeEmpty: `en-US`
   },
   mutations: {
     setError(state, error) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     clearError(state) {
       state.error = null
+    },
+    setLocaleEmpty(state, value) {
+      state.localeEmpty = value;
     }
   },
   actions: {

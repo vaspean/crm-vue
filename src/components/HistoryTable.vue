@@ -27,7 +27,7 @@
         <button 
         class="btn-small btn" 
         @click="$router.push(`/detail-record/${record.id}`)" 
-        v-tooltip="'Tooltip_OpenRecord'">
+        v-tooltip="localizeFilter('Tooltip_OpenRecord')">
           <i class="material-icons">open_in_new</i>
         </button>
       </td>
@@ -37,12 +37,16 @@
 </template>
 
 <script>
+import localizeFilter from "@/filters/localize.filter"
 export default {
   props: {
     records: {
       required: true,
       type: Array
     }
+  },
+  methods: {
+    localizeFilter
   }
 }
 </script>
