@@ -11,7 +11,7 @@
     <Loader v-if="loading"/>
 
     <p class="center" v-else-if="!records.length">
-      {{'Message_NoRecordsYet'|localize}}
+      {{'Message_NoRecordsYet'|localize}}.
       <router-link to="/record">{{'Message_CreateRecord'|localize}}:)</router-link>
     </p>
 
