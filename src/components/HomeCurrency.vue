@@ -10,7 +10,6 @@
           <tr>
             <th>{{'Currency'|localize}}</th>
             <th>{{'CurrencyRate'|localize}}</th>
-            <!-- <th>Дата</th> -->
           </tr>
           </thead>
 
@@ -18,7 +17,6 @@
           <tr v-for="cur in currencies" :key="cur">
             <td>{{cur}}</td>
             <td>{{rates[`${cur}_RUB`]}}</td>
-            <!-- <td>12.12.12</td> -->
           </tr>
           </tbody>
         </table>

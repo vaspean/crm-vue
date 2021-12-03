@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     setup(categories) {
-      console.log(categories.length)
       this.setupPagination(this.records.map(record => {
         return{
           ...record,
@@ -69,7 +68,6 @@ export default {
       for (let category in categories) {
         colorsArray.push(this.dynamicColors());
       }
-      console.log(colorsArray)
       this.renderChart({
         labels: categories.map(category => category.title),
         datasets: [{

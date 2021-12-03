@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueMeta from 'vue-meta'
-// import useVuelidate from '@vuelidate/core'
 import Vuelidate from 'vuelidate'
 import Paginate from 'vuejs-paginate'
 import App from './App.vue'
@@ -18,7 +17,6 @@ import 'materialize-css/dist/js/materialize.min'
 
 
 import firebase from 'firebase/compat/app'
-// import firebase from "@firebase/app-compat"
 import 'firebase/compat/auth'
 import 'firebase/compat/database'
 

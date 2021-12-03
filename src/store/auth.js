@@ -1,4 +1,3 @@
-// import firebase from "@firebase/app-compat"
 import firebase from 'firebase/compat/app'
 
 export default {
@@ -26,7 +25,6 @@ export default {
     },
     getUid(){
       const user = firebase.auth().currentUser;
-      // console.log(user)
       return user? user.uid : null
     },
     async logout({commit}) {

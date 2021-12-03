@@ -131,8 +131,6 @@ export default {
       } catch (e) {
 
       }
-      // console.log(formData)
-      
     }
   }
 }

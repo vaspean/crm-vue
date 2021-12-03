@@ -78,7 +78,6 @@ export default {
   },
   watch: {
     current(catId) {
-      // console.log(value)
       const {title, limit} = this.categories.find(category=>category.id === catId);
       this.title = title;
       this.limit = limit;
