@@ -11,8 +11,8 @@
     <Loader v-if="loading"/>
 
     <p class="center" v-else-if="!records.length">
-      Записей пока нет
-      <router-link to="/record">Добавьте свою первую запись :)</router-link>
+      {{'Message_NoRecordsYet'|localize}}
+      <router-link to="/record">{{'Message_CreateRecord'|localize}}:)</router-link>
     </p>
 
     <section v-else>
